@@ -1,6 +1,8 @@
 package com.github.saintedlittle.stalkerapp.data;
 
-import com.fasterxml.jackson.annotation.JsonProperty;
+import com.google.firebase.Timestamp;
+
+import java.util.Date;
 
 public class SystemData {
     private String imei;
@@ -8,29 +10,52 @@ public class SystemData {
     private String ip;
     private String country;
     private String timezone;
+    private String simOperatorName;
+    private String simSerialNumber;
+    private String networkOperatorName;
+    private String networkCountryIso;
+    private String networkType;
 
-    @JsonProperty("IMEI")
+    private Timestamp timestamp;
+
     public String getImei() { return imei; }
-    @JsonProperty("IMEI")
     public void setImei(String value) { this.imei = value; }
 
-    @JsonProperty("DEVICE_NAME")
     public String getDeviceName() { return deviceName; }
-    @JsonProperty("DEVICE_NAME")
     public void setDeviceName(String value) { this.deviceName = value; }
 
-    @JsonProperty("IP")
     public String getIP() { return ip; }
-    @JsonProperty("IP")
     public void setIP(String value) { this.ip = value; }
 
-    @JsonProperty("COUNTRY")
     public String getCountry() { return country; }
-    @JsonProperty("COUNTRY")
     public void setCountry(String value) { this.country = value; }
 
-    @JsonProperty("TIMEZONE")
     public String getTimezone() { return timezone; }
-    @JsonProperty("TIMEZONE")
     public void setTimezone(String value) { this.timezone = value; }
+
+    public Timestamp getTimestamp() {
+        return timestamp;
+    }
+
+    public void setTimestamp(Date date) {
+        timestamp = new Timestamp(date);
+    }
+
+
+    public void setNetworkCountryIso(String networkCountryIso) {
+        this.networkCountryIso = networkCountryIso;
+    }
+
+    public void setNetworkOperatorName(String networkOperatorName) {
+        this.networkOperatorName = networkOperatorName;
+    }
+
+    public void setSimOperatorName(String simOperatorName) {
+        this.simOperatorName = simOperatorName;
+    }
+
+    public void setSimSerialNumber(String simSerialNumber) {
+        this.simSerialNumber = simSerialNumber;
+    }
+
 }

