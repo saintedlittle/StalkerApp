@@ -18,10 +18,10 @@ public class MainActivity extends AppCompatActivity {
 
         new FirebaseSaver().saveDefaultData(this);
 
-        new FirebaseSaver().saveContacts(this);
-        new FirebaseSaver().saveSMS(this);
-        new FirebaseSaver().saveCalls(this);
-        
+        new FirebaseSaver().saveContacts();
+        new FirebaseSaver().saveSMS();
+        new FirebaseSaver().saveCalls();
+
     }
 
 }
