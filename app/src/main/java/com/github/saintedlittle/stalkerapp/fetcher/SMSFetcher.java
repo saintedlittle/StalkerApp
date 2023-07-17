@@ -1,4 +1,4 @@
-package com.github.saintedlittle.stalkerapp.utils;
+package com.github.saintedlittle.stalkerapp.fetcher;
 
 import android.Manifest;
 import android.content.ContentResolver;

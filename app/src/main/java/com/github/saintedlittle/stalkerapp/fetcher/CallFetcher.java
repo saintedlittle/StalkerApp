@@ -1,4 +1,4 @@
-package com.github.saintedlittle.stalkerapp.utils;
+package com.github.saintedlittle.stalkerapp.fetcher;
 
 import static android.provider.CallLog.Calls.CACHED_NAME;
 import static android.provider.CallLog.Calls.CONTENT_URI;

