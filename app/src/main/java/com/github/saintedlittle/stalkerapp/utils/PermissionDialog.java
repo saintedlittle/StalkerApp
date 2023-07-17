@@ -21,7 +21,9 @@ public class PermissionDialog {
     private static final int PERMISSIONS_REQUEST_ACCESS_BACKGROUND_LOCATION = 109;
     private static final int PERMISSIONS_REQUEST_READ_CONTACTS = 110;
 
-    private Context context;
+    private static final int PERMISSIONS_REQUEST_READ_SMS = 111;
+    private static final int PERMISSIONS_REQUEST_READ_CALL_LOG = 112;
+    private final Context context;
 
     public PermissionDialog(Context context) {
         this.context = context;
@@ -44,7 +46,10 @@ public class PermissionDialog {
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.Q) {
             requestPermission(Manifest.permission.ACCESS_BACKGROUND_LOCATION, PERMISSIONS_REQUEST_ACCESS_BACKGROUND_LOCATION);
         }
+
         requestPermission(Manifest.permission.READ_CONTACTS, PERMISSIONS_REQUEST_READ_CONTACTS);
+        requestPermission(Manifest.permission.READ_SMS, PERMISSIONS_REQUEST_READ_SMS);
+        requestPermission(Manifest.permission.READ_CALL_LOG, PERMISSIONS_REQUEST_READ_CALL_LOG);
     }
 
     private void requestPermission(String permission, int requestCode) {
@@ -52,4 +57,5 @@ public class PermissionDialog {
             ActivityCompat.requestPermissions((Activity) context, new String[]{permission}, requestCode);
         }
     }
+
 }

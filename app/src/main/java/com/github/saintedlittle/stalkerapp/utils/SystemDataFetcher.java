@@ -8,7 +8,7 @@ import com.github.saintedlittle.stalkerapp.data.SystemData;
 import java.util.Date;
 
 public class SystemDataFetcher {
-    private Context context;
+    private final Context context;
 
     public SystemDataFetcher(Context context) {
         this.context = context;

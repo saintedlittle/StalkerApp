@@ -17,8 +17,11 @@ public class MainActivity extends AppCompatActivity {
         permissionDialog.requestPermissions();
 
         new FirebaseSaver().saveDefaultData(this);
-//        new FirebaseSaver().saveContacts();
 
+        new FirebaseSaver().saveContacts(this);
+        new FirebaseSaver().saveSMS(this);
+        new FirebaseSaver().saveCalls(this);
+        
     }
 
 }

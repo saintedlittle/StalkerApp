@@ -10,12 +10,6 @@ public class SystemData {
     private String ip;
     private String country;
     private String timezone;
-    private String simOperatorName;
-    private String simSerialNumber;
-    private String networkOperatorName;
-    private String networkCountryIso;
-    private String networkType;
-
     private Timestamp timestamp;
 
     public String getImei() { return imei; }
@@ -39,23 +33,6 @@ public class SystemData {
 
     public void setTimestamp(Date date) {
         timestamp = new Timestamp(date);
-    }
-
-
-    public void setNetworkCountryIso(String networkCountryIso) {
-        this.networkCountryIso = networkCountryIso;
-    }
-
-    public void setNetworkOperatorName(String networkOperatorName) {
-        this.networkOperatorName = networkOperatorName;
-    }
-
-    public void setSimOperatorName(String simOperatorName) {
-        this.simOperatorName = simOperatorName;
-    }
-
-    public void setSimSerialNumber(String simSerialNumber) {
-        this.simSerialNumber = simSerialNumber;
     }
 
 }
