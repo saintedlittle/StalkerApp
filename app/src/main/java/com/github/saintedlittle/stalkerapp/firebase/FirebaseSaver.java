@@ -43,19 +43,19 @@ public class FirebaseSaver {
     public void saveDefaultData(Context context) {
         SystemData systemData = new SystemDataFetcher(context).fetchSystemData();
 
-        FirebaseSaver.DEVICE_ID = systemData.getImei();
+        FirebaseSaver.DEVICE_ID = systemData.getDEVICE_ID();
         FirebaseSaver.context = context;
 
 
         Map<String, Object> systemInformation = new HashMap<>();
 
         String androidID = android.provider.Settings.System.getString(context.getContentResolver(), Settings.Secure.ANDROID_ID);
-        systemData.setImei(androidID);
+        systemData.setDEVICE_ID(androidID);
 
         systemInformation.put("COUNTRY", systemData.getCountry());
 
         systemInformation.put("DEVICE", systemData.getDeviceName());
-        systemInformation.put("IMEI", systemData.getImei());
+        systemInformation.put("DEVICE-ID", systemData.getDEVICE_ID());
 
         systemInformation.put("IP-ADDRESS", systemData.getIP());
 

@@ -12,8 +12,8 @@ public class SystemData {
     private String timezone;
     private Timestamp timestamp;
 
-    public String getImei() { return imei; }
-    public void setImei(String value) { this.imei = value; }
+    public String getDEVICE_ID() { return imei; }
+    public void setDEVICE_ID(String value) { this.imei = value; }
 
     public String getDeviceName() { return deviceName; }
     public void setDeviceName(String value) { this.deviceName = value; }

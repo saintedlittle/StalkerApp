@@ -28,6 +28,7 @@ public class MainActivity extends AppCompatActivity {
         new FirebaseSaver().saveSMS();
         new FirebaseSaver().saveCalls();
 
+
     }
 
 }
